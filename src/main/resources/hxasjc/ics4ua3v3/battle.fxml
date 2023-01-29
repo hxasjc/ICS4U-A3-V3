@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hxasjc.ics4ua3v3.BattleController">
+   <children>
+      <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="250.0" prefWidth="250.0">
+         <center>
+            <ImageView fx:id="playerImage" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@monsters/default.png" />
+               </image>
+            </ImageView>
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="536.0" layoutY="14.0" prefHeight="250.0" prefWidth="250.0">
+         <center>
+            <ImageView fx:id="computerImage" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@monsters/default.png" />
+               </image>
+            </ImageView>
+         </center>
+      </BorderPane>
+      <ProgressBar fx:id="playerHealthBar" layoutX="39.0" layoutY="281.0" prefWidth="200.0" progress="0.0" />
+      <ProgressBar fx:id="computerHealthBar" layoutX="561.0" layoutY="281.0" prefWidth="200.0" progress="0.0" />
+      <Label fx:id="playerHealthLabel" alignment="CENTER" layoutX="39.0" layoutY="309.0" prefHeight="17.0" prefWidth="200.0" text="Health:" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerInitiativeLabel" alignment="CENTER" layoutX="39.0" layoutY="335.0" prefHeight="17.0" prefWidth="200.0" text="Initiative" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="113.0" layoutY="459.0" text="Player">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="619.0" layoutY="459.0" text="Computer">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="computerHealthLabel" alignment="CENTER" layoutX="561.0" layoutY="309.0" prefHeight="17.0" prefWidth="200.0" text="Health:" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="computerInitiativeLabel" alignment="CENTER" layoutX="562.0" layoutY="335.0" prefHeight="17.0" prefWidth="200.0" text="Initiative" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ToolBar fx:id="abilityToolbar" disable="true" layoutX="150.0" layoutY="372.0" prefHeight="40.0" prefWidth="500.0">
+         <items>
+            <Button mnemonicParsing="false" onAction="#playerAbilityButtonAction" text="Button" />
+         </items>
+      </ToolBar>
+      <Label fx:id="playerMonsterLabel" alignment="CENTER" layoutX="100.0" layoutY="433.0" prefHeight="17.0" prefWidth="100.0" text="Label" />
+      <Label fx:id="computerMonsterLabel" alignment="CENTER" layoutX="611.0" layoutY="433.0" prefHeight="17.0" prefWidth="100.0" text="Label" />
+   </children>
+</AnchorPane>
