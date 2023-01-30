@@ -47,90 +47,6 @@ public class BattleApp extends Application {
     }
 
     private void startBattle(Class<? extends Monster> playerClass, Class<? extends Monster> computerClass) {
-        /*try {
-            System.out.println("player: " + playerClass);
-            System.out.println("computer: " + computerClass);
-
-            FXMLLoader loader = new FXMLLoader(BattleApp.class.getResource("battle.fxml"));
-            Scene scene = new Scene(loader.load());
-
-            Stage stage = primaryStage.getValue();
-            stage.setScene(scene);
-
-            battleController.setValue(loader.getController());
-
-            BattleController controller = battleController.getValue();
-
-            Monster playerMonster = playerClass.getDeclaredConstructor().newInstance(); //get a monster
-            Monster computerMonster = computerClass.getDeclaredConstructor().newInstance();
-
-            try {
-                controller.setPlayerImage(new Image(BattleApp.class.getResource("monsters/" + playerClass.getSimpleName() + ".png").getPath()));
-            } catch (NullPointerException ignored) {}
-
-            try {
-                controller.setComputerImage(new Image(BattleApp.class.getResource("monsters/" + computerClass.getSimpleName() + ".png").getPath()));
-            } catch (NullPointerException ignored) {}
-
-            int playerInitiative = rollD20(); //roll for initiative
-            int computerInitiative = rollD20();
-
-            boolean playerFirst = false;
-
-            if (playerInitiative == computerInitiative) {
-                playerInitiative =+ playerMonster.getStat(StatRolls.DEX); //if there is a tie, attempt to break it by checking DEX modifiers
-                computerInitiative =+ computerMonster.getStat(StatRolls.DEX);
-
-                if (playerInitiative == computerInitiative) { //if it's still tied, roll a D100
-                    if (
-                            rollDice(1, 100) > //player
-                                    rollDice(1, 100) //computer
-                    ) {
-                        playerFirst = true;
-                    }
-                }
-            } else {
-                if (playerInitiative > computerInitiative) {
-                    playerFirst = true;
-                }
-            }
-
-            controller.setPlayerInitiative(playerInitiative);
-            controller.setComputerInitiative(computerInitiative);
-
-            controller.updateAbilityToolbar(playerMonster);
-
-            while (true) {
-                if (playerFirst) {
-                    // player turn
-                    //playerMonster.damageWithPrimary(computerMonster);
-
-                    System.out.println("player first");
-
-                    controller.disableAbilityToolbar(false);
-
-                    updateHealth(playerMonster, computerMonster);
-
-                    if (isAMonsterDead(playerMonster, computerMonster)) {
-                        break;
-                    }
-                }
-
-                //computer turn
-                computerMonster.damageWithPrimary(playerMonster);
-
-                updateHealth(playerMonster, computerMonster);
-
-                if (isAMonsterDead(playerMonster, computerMonster)) {
-                    break;
-                }
-
-                playerFirst = true; //allow the player to actually take turns
-            }
-        } catch (Throwable t) {
-            showErrorDialog(t);
-        }*/
-
         try {
             //primaryStage.getValue().setScene(new Scene(new FXMLLoader(BattleApp.class.getResource("battle.fxml")).load()));
 
@@ -152,18 +68,6 @@ public class BattleApp extends Application {
         } catch (Throwable t) {
             showErrorDialog(t);
         }
-    }
-
-    private void updateHealth(Monster player, Monster computer) {
-        int pc = player.getHealth();
-        int pm = player.getMaxHealth();
-        int cc = computer.getHealth();
-        int cm = computer.getMaxHealth();
-
-        BattleController controller = battleController.getValue();
-
-        controller.setPlayerHealth(pc, pm);
-        controller.setComputerHealth(cc, cm);
     }
 
     public BattleBeginController getBattleBeginController() {

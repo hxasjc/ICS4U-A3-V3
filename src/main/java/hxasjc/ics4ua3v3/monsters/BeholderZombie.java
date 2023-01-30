@@ -42,11 +42,6 @@ public class BeholderZombie extends AbstractZombie {
         Supplier<Attack> eyeRay = () -> {
             throw new RuntimeException("Not implemented yet");
             //TODO implement
-            /*switch (new Random().nextInt(4) + 1) {
-                case 1 -> {
-                    //
-                }
-            }*/
         };
 
         setPrimaryAttack(bite);

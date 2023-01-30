@@ -9,6 +9,7 @@ import java.util.function.Consumer;
 import static hxasjc.ics4ua3v3.DiceRoll.rollD20;
 import static hxasjc.ics4ua3v3.DiceRoll.rollDice;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class MainBattle {
     private final BattleController controller;
     private final Class<? extends Monster> playerClass;
@@ -27,14 +28,6 @@ public class MainBattle {
 
         playerMonster = playerClass.getDeclaredConstructor().newInstance();
         computerMonster = computerClass.getDeclaredConstructor().newInstance();
-
-        /*try {
-            this.controller.setPlayerImage(new Image(BattleApp.class.getResource("monsters/" + playerClass.getSimpleName() + ".png").getPath()));
-        } catch (NullPointerException ignored) {}
-
-        try {
-            this.controller.setComputerImage(new Image(BattleApp.class.getResource("monsters/" + computerClass.getSimpleName() + ".png").getPath()));
-        } catch (NullPointerException ignored) {}*/
 
         controller.setPlayerImage(playerMonster.getMonsterImage());
         controller.setComputerImage(computerMonster.getMonsterImage());

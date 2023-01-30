@@ -364,6 +364,7 @@ public abstract class Monster {
         return false;
     }
 
+    @SuppressWarnings("DataFlowIssue")
     public Image getMonsterImage() {
         try {
             return new Image(Monster.class.getResource(this.getClass().getSimpleName() + ".png").getPath());

@@ -36,12 +36,12 @@ public class BattleBeginController {
     /**
      * A list containing the pretty names of each available class. Updated by {@link BattleBeginController#updateRaceList()}
      */
-    private ObservableList<String> raceChoiceList = FXCollections.observableArrayList();
+    private final ObservableList<String> raceChoiceList = FXCollections.observableArrayList();
 
     /**
      * A HashMap that stores a pretty name and the class for each monster available. It allows for easy retrieving of classes chosen by the dropdowns
      */
-    private HashMap<String, Class<? extends Monster>> raceNameMap = new HashMap<>();
+    private final HashMap<String, Class<? extends Monster>> raceNameMap = new HashMap<>();
 
     /**
      * The class that will be used to spawn the player's monster
@@ -163,12 +163,5 @@ public class BattleBeginController {
      */
     public void onBeginBattle(BiConsumer<Class<? extends Monster>, Class<? extends Monster>> consumer) {
         beginBattleConsumer = consumer;
-    }
-
-    /**
-     * Debug method used to print out the current stack trace. Throws a simple RuntimeException that will be caught.
-     */
-    public void printStackTrace() {
-        throw new RuntimeException();
     }
 }

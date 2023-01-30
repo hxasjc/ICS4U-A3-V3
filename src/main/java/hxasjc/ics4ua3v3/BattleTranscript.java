@@ -45,6 +45,8 @@ public class BattleTranscript {
                     writer.append(component.toString());
                     writer.append("\n");
                 }
+
+                writer.close();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -60,12 +62,10 @@ public class BattleTranscript {
         @Override
         public String toString() {
             //System.out.println(instant);
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("[");
-            stringBuilder.append(Util.DATE_TIME_FORMATTER.format(instant));
-            stringBuilder.append("] ");
-            stringBuilder.append(o);
-            return stringBuilder.toString();
+            return "[" +
+                    Util.DATE_TIME_FORMATTER.format(instant) +
+                    "] " +
+                    o;
         }
     }
 }

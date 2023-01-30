@@ -24,10 +24,6 @@ public class Attack {
         return this;
     }
 
-    public int makeAttackRoll() {
-        return DiceRoll.rollD20() + attackModifier;
-    }
-
     public int getAttackModifier() {
         return attackModifier;
     }
