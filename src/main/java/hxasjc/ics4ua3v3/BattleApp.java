@@ -30,7 +30,7 @@ public class BattleApp extends Application {
             FXMLLoader loader = new FXMLLoader(BattleApp.class.getResource("battle-begin.fxml"));
             Scene scene = new Scene(loader.load());
 
-            stage.setTitle("v3");
+            stage.setTitle("Dnd Battle Simulator");
             stage.setScene(scene);
             stage.show();
 
@@ -193,5 +193,7 @@ public class BattleApp extends Application {
         OgreZombie.ping();
         BeholderZombie.ping();
         AwakenedShrub.ping();
+        Allosaurus.ping();
+        Ankylosaurus.ping();
     }
 }

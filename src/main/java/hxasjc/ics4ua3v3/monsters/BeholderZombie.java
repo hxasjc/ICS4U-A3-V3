@@ -5,6 +5,9 @@ import hxasjc.ics4ua3v3.*;
 import java.util.Map;
 import java.util.function.Supplier;
 
+/**
+ * The class representing Beholder Zombies. Source: DnD 5e Monster Manual p316
+ */
 public class BeholderZombie extends AbstractZombie {
     static {
         try {
@@ -14,6 +17,9 @@ public class BeholderZombie extends AbstractZombie {
         }
     }
 
+    /**
+     * Creates a new Beholder Zombie
+     */
     public BeholderZombie() {
         super(DiceRoll.rollDice(11, 10, 33),
                 15,
@@ -24,7 +30,9 @@ public class BeholderZombie extends AbstractZombie {
                         Map.entry(StatRolls.INT, 3),
                         Map.entry(StatRolls.WIS, 8),
                         Map.entry(StatRolls.CHA, 5)
-                ));
+                ),
+                5
+        );
         addDamageImmunities(DamageType.POISON);
 
         Attack bite = new Attack()
@@ -33,6 +41,7 @@ public class BeholderZombie extends AbstractZombie {
                 .name("Bite");
         Supplier<Attack> eyeRay = () -> {
             throw new RuntimeException("Not implemented yet");
+            //TODO implement
             /*switch (new Random().nextInt(4) + 1) {
                 case 1 -> {
                     //
@@ -43,5 +52,8 @@ public class BeholderZombie extends AbstractZombie {
         setPrimaryAttack(bite);
     }
 
+    /**
+     * @see Monster#ping()
+     */
     public static void ping(){}
 }

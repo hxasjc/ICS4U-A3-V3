@@ -4,6 +4,9 @@ import hxasjc.ics4ua3v3.*;
 
 import java.util.Map;
 
+/**
+ * The class representing the Awakened Shrub, a shrub that has been awakened by magic. Source: DnD 5e Monster Manual p317
+ */
 public class AwakenedShrub extends Monster {
     static {
         try {
@@ -13,6 +16,9 @@ public class AwakenedShrub extends Monster {
         }
     }
 
+    /**
+     * Creates a new Awakened Shrub
+     */
     public AwakenedShrub() {
         super(
                 DiceRoll.rollDice(3, 6),
@@ -24,7 +30,8 @@ public class AwakenedShrub extends Monster {
                         Map.entry(StatRolls.INT, 10),
                         Map.entry(StatRolls.WIS, 10),
                         Map.entry(StatRolls.CHA, 6)
-                )
+                ),
+                0
         );
         addDamageVulnerabilities(DamageType.FIRE);
         setPrimaryAttack(
@@ -35,5 +42,8 @@ public class AwakenedShrub extends Monster {
         );
     }
 
+    /**
+     * @see Monster#ping()
+     */
     public static void ping(){}
 }

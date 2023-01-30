@@ -23,7 +23,8 @@ public class Zombie extends AbstractZombie {
                         Map.entry(StatRolls.INT, 3),
                         Map.entry(StatRolls.WIS, 6),
                         Map.entry(StatRolls.CHA, 5)
-                )
+                ),
+                0.25
         );
         addDamageImmunities(DamageType.POISON);
         setPrimaryAttack(

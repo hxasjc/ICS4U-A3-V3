@@ -30,13 +30,16 @@ public class MainBattle {
         playerMonster = playerClass.getDeclaredConstructor().newInstance();
         computerMonster = computerClass.getDeclaredConstructor().newInstance();
 
-        try {
+        /*try {
             this.controller.setPlayerImage(new Image(BattleApp.class.getResource("monsters/" + playerClass.getSimpleName() + ".png").getPath()));
         } catch (NullPointerException ignored) {}
 
         try {
             this.controller.setComputerImage(new Image(BattleApp.class.getResource("monsters/" + computerClass.getSimpleName() + ".png").getPath()));
-        } catch (NullPointerException ignored) {}
+        } catch (NullPointerException ignored) {}*/
+
+        controller.setPlayerImage(playerMonster.getMonsterImage());
+        controller.setComputerImage(computerMonster.getMonsterImage());
 
         controller.updateAbilityToolbar(playerMonster);
         controller.setAbilityButtonConsumer(this::playerAbilityButtonHandler);
@@ -84,6 +87,7 @@ public class MainBattle {
     }
 
     public void startPlayerTurn() {
+        System.out.println("player turn");
         controller.disableAbilityToolbar(false);
     }
 
@@ -108,6 +112,7 @@ public class MainBattle {
     }
 
     public void computerTurn() {
+        System.out.println("computer turn");
         computerMonster.damageWithPrimary(playerMonster, transcript);
         updateHealth();
         if (!isAMonsterDead()) {
@@ -124,7 +129,8 @@ public class MainBattle {
                 playerWin ? "You Won!" : "You Lost"
         ).showAndWait();
 
-        Optional<ButtonType> button = new Alert(
+        //TODO implement this better
+        /*Optional<ButtonType> button = new Alert(
                 Alert.AlertType.CONFIRMATION,
                 "Would you like to save the battle transcript?"
         ).showAndWait();
@@ -133,7 +139,7 @@ public class MainBattle {
             if (button.get().getText().equals("OK")) {
                 transcript.save(controller.abilityToolbar.getScene().getWindow());
             }
-        }
+        }*/
     }
 
     private void updateHealth() {

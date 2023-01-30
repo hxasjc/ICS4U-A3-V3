@@ -31,7 +31,9 @@ public class DiceRoll {
     }
 
     public static int rollDice(DieRollPreset rollPreset) {
-        return rollDice(rollPreset.numDice(), rollPreset.dieSides(), rollPreset.modifier());
+        int result = rollDice(rollPreset.numDice(), rollPreset.dieSides(), rollPreset.modifier());
+        System.out.println(rollPreset + " " + result);
+        return result;
     }
 
     public static int rollD20() {
