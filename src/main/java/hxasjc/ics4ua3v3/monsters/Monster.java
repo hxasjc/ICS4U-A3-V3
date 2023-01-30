@@ -1,17 +1,15 @@
 package hxasjc.ics4ua3v3.monsters;
 
 import hxasjc.ics4ua3v3.*;
-import javafx.concurrent.ScheduledService;
 import javafx.scene.image.Image;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import static hxasjc.ics4ua3v3.DiceRoll.*;
+import static hxasjc.ics4ua3v3.DiceRoll.rollD20;
+import static hxasjc.ics4ua3v3.DiceRoll.rollDice;
 
 /**
  * Base class that all monsters are based on and providing 99% of the functionality

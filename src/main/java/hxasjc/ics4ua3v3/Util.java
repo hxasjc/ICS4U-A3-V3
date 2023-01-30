@@ -1,11 +1,7 @@
 package hxasjc.ics4ua3v3;
 
-import hxasjc.ics4ua3v3.monsters.Monster;
-import javafx.scene.control.Button;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 

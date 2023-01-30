@@ -3,13 +3,11 @@ package hxasjc.ics4ua3v3;
 import hxasjc.ics4ua3v3.monsters.Monster;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.image.Image;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
-import static hxasjc.ics4ua3v3.DiceRoll.*;
+import static hxasjc.ics4ua3v3.DiceRoll.rollD20;
+import static hxasjc.ics4ua3v3.DiceRoll.rollDice;
 
 public class MainBattle {
     private final BattleController controller;
