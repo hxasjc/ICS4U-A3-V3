@@ -4,6 +4,9 @@ import hxasjc.ics4ua3v3.*;
 
 import java.util.Map;
 
+/**
+ * The class representing Zombies. Source: DnD 5e Monster Manual p316
+ */
 public class Zombie extends AbstractZombie {
     static {
         try {
@@ -13,6 +16,9 @@ public class Zombie extends AbstractZombie {
         }
     }
 
+    /**
+     * Creates a new Zombie
+     */
     public Zombie() {
         super(DiceRoll.rollDice(3, 8, 9),
                 8,
@@ -34,5 +40,8 @@ public class Zombie extends AbstractZombie {
                         .name("Slam"));
     }
 
+    /**
+     * @see Monster#ping()
+     */
     public static void ping(){}
 }

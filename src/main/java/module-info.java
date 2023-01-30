@@ -1,3 +1,6 @@
+/**
+ * The module containing the project
+ */
 module hxasjc.ics4ua3v3 {
     requires javafx.controls;
     requires javafx.fxml;

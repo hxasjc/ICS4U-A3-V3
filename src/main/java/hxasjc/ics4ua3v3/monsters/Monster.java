@@ -1,6 +1,7 @@
 package hxasjc.ics4ua3v3.monsters;
 
 import hxasjc.ics4ua3v3.*;
+import javafx.concurrent.ScheduledService;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
@@ -371,6 +372,23 @@ public abstract class Monster {
         } catch (NullPointerException e) {
             return null;
         }
+    }
+
+    public double getChallengeRating() {
+        return challengeRating;
+    }
+
+    public static String getChallengeRatingString(Monster monster) {
+        double cr = monster.getChallengeRating();
+        if (cr < 1) {
+            return switch (Double.toString(cr)) {
+                case "0.25" -> "1/4";
+                case "0.5" -> "1/2";
+                case "0.75" -> "3/4";
+                default -> Double.toString(cr);
+            };
+        }
+        return Double.toString(cr);
     }
 
     /**

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.function.BiConsumer;
 
@@ -83,7 +84,16 @@ public class BattleBeginController {
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByKey())
-                .forEach(entry -> raceChoiceList.add(entry.getKey()));
+                .forEach(entry -> {
+                    Monster monster;
+                    try {
+                        monster = entry.getValue().getDeclaredConstructor().newInstance();
+                    } catch (Throwable e) {
+                        throw new RuntimeException(e);
+                    }
+                    String cr = Monster.getChallengeRatingString(monster);
+                    raceChoiceList.add(entry.getKey() + " (" + cr + ")");
+                });
     }
 
     /**
@@ -106,6 +116,7 @@ public class BattleBeginController {
         if (choice.equals("Random")) {
             playerMonster = getRandomMonster();
         } else {
+            choice = choice.substring(0, choice.indexOf("(")).strip();
             playerMonster = raceNameMap.get(choice);
         }
         updateButtonVisibility();
@@ -122,6 +133,7 @@ public class BattleBeginController {
         if (choice.equals("Random")) {
             computerMonster = getRandomMonster();
         } else {
+            choice = choice.substring(0, choice.indexOf("(")).strip();
             computerMonster = raceNameMap.get(choice);
         }
         updateButtonVisibility();

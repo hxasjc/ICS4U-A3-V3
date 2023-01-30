@@ -30,7 +30,7 @@ public class BattleApp extends Application {
             FXMLLoader loader = new FXMLLoader(BattleApp.class.getResource("battle-begin.fxml"));
             Scene scene = new Scene(loader.load());
 
-            stage.setTitle("Dnd Battle Simulator");
+            stage.setTitle("DnD Battle Simulator");
             stage.setScene(scene);
             stage.show();
 
