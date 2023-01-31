@@ -308,10 +308,23 @@ public abstract class Monster {
         return false;
     }
 
-    public final boolean damageWithPrimary(Monster monster, BattleTranscript transcript) {
-        return damageWithAttack(monster, this.primaryAttack.get(), transcript);
+    /**
+     * This monster deals damage to the specified monster using its primary attack
+     * @param target The target monster
+     * @param transcript The transcript instance
+     * @return Whether this monster dealt any damage
+     */
+    public final boolean damageWithPrimary(Monster target, BattleTranscript transcript) {
+        return damageWithAttack(target, this.primaryAttack.get(), transcript);
     }
 
+    /**
+     * This monster deals damage to the specified monster using the specified attack
+     * @param target The target monster
+     * @param attack The attack being used
+     * @param transcript The transcript instance
+     * @return Whether this monster dealt any damage
+     */
     public final boolean damageWithAttack(Monster target, Attack attack, BattleTranscript transcript) {
         if (!target.checkAgainstDamageImmunities(attack.getDamageType())) {
             int attackDie = rollD20();
@@ -360,10 +373,19 @@ public abstract class Monster {
         return false;
     }
 
+    /**
+     * This method allows monsters to have special behaviour when they reach 0 health. It should be overridden by the monster's subclass
+     * @param damage The damage dealt on the killing blow
+     * @return Whether any special actions took place
+     */
     protected boolean onKnockOut(int damage) {
         return false;
     }
 
+    /**
+     * Get the monster's image if one exists, or null if it could not be found. Images must be a PNG file with the same name as the class name.
+     * @return The monster's image, or null if it could not be found
+     */
     @SuppressWarnings("DataFlowIssue")
     public Image getMonsterImage() {
         try {
@@ -373,10 +395,19 @@ public abstract class Monster {
         }
     }
 
+    /**
+     * Get the monster's Challenge Rating. Challenge rating is a way of seeing approximately how difficult a monster is to fight
+     * @return The monster's challenge rating
+     */
     public double getChallengeRating() {
         return challengeRating;
     }
 
+    /**
+     * Get a string representing the specified monster's challenge rating. This replaces the decimal values of 0.25, 0.5 and 0.75 with fractions
+     * @param monster The monster to get the challenge rating string for
+     * @return A string representing the monster's challenge rating
+     */
     public static String getChallengeRatingString(Monster monster) {
         double cr = monster.getChallengeRating();
         if (cr < 1) {

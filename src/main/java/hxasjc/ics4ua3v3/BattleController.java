@@ -13,6 +13,9 @@ import javafx.scene.image.ImageView;
 
 import java.util.function.Consumer;
 
+/**
+ * This class controls the UI for the actual battle screen
+ */
 public class BattleController {
     /**
      * Image that displays the player's monster
@@ -197,8 +200,8 @@ public class BattleController {
     }
 
     /**
-     * Sets the consumer which will recieve each {@link ActionEvent} produced by pressing an {@link AbilityButton}.
-     * @param abilityButtonConsumer
+     * Sets the consumer which will receive each {@link ActionEvent} produced by pressing an {@link AbilityButton}.
+     * @param abilityButtonConsumer Consumer to handle all events from AbilityButtons
      */
     public void setAbilityButtonConsumer(Consumer<ActionEvent> abilityButtonConsumer) {
         this.abilityButtonConsumer = abilityButtonConsumer;

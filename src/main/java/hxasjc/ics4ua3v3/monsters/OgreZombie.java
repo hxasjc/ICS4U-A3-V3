@@ -4,6 +4,9 @@ import hxasjc.ics4ua3v3.*;
 
 import java.util.Map;
 
+/**
+ * The class representing Ogre Zombies. Source: DnD 5e Monster Manual p316
+ */
 public class OgreZombie extends AbstractZombie {
     static {
         try {
@@ -13,6 +16,9 @@ public class OgreZombie extends AbstractZombie {
         }
     }
 
+    /**
+     * Creates a new Ogre Zombie
+     */
     public OgreZombie() {
         super(
                 DiceRoll.rollDice(9, 10, 36),
@@ -36,5 +42,8 @@ public class OgreZombie extends AbstractZombie {
         );
     }
 
+    /**
+     * @see Monster#ping()
+     */
     public static void ping(){}
 }

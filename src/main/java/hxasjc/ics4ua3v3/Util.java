@@ -5,6 +5,9 @@ import java.io.StringWriter;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Utility class with misc methods
+ */
 public class Util {
     /**
      * Formats dates in a shorter format

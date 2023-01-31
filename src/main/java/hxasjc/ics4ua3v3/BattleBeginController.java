@@ -14,6 +14,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.function.BiConsumer;
 
+/**
+ * This class controls the UI for the monster selection screen
+ */
 public class BattleBeginController {
     /**
      * Dropdown to choose the player's monster

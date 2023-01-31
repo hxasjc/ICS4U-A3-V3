@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.LinkedList;
 
+/**
+ * This is supposed to be a way to save a log of the battle. Still working on the actual file saving part
+ */
 public class BattleTranscript {
     /**
      * A list of all transcript components. Uses a LinkedList to ensure that the items stay in order.

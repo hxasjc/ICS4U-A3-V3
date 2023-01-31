@@ -11,6 +11,10 @@ public abstract class AbstractZombie extends Monster {
     /**
      * Allows individual zombie classes to access the main constructor for monsters ({@link Monster#Monster(int, int, Map, double)}).
      * @see Monster#Monster(int, int, Map, double)  Monster
+     * @param health The monster's health
+     * @param armourClass The monster's armour class
+     * @param skillScores The monster's scores corresponding to each of the {@link StatRolls} stats
+     * @param challengeRating The monster's challenge rating
      */
     protected AbstractZombie(int health, int armourClass, Map<StatRolls, Integer> skillScores, double challengeRating) {
         super(health, armourClass, skillScores, challengeRating);
@@ -18,8 +22,6 @@ public abstract class AbstractZombie extends Monster {
 
     /**
      * Handles the functionality for the Undead Fortitude ability, which allows zombies to roll when they reach 0 health, to possible prevent death
-     * @param damage The damage dealt on the killing blow
-     * @return Whether any special actions took place
      */
     @Override
     protected boolean onKnockOut(int damage) {
