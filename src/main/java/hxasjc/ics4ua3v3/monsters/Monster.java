@@ -389,9 +389,15 @@ public abstract class Monster {
     @SuppressWarnings("DataFlowIssue")
     public Image getMonsterImage() {
         try {
-            return new Image(Monster.class.getResource(this.getClass().getSimpleName() + ".png").getPath());
+            /*String path = Monster.class.getResource(this.getClass().getSimpleName() + ".png").getPath();
+            System.out.println(path);
+            return new Image(path);*/
+
+            return new Image(Monster.class.getResource(this.getClass().getSimpleName() + ".png").openStream());
         } catch (NullPointerException e) {
             return null;
+        } catch (Throwable t) {
+            throw new RuntimeException(t);
         }
     }
 

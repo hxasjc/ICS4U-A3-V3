@@ -33,6 +33,7 @@ public class Ankylosaurus extends Monster {
                 ),
                 3
         );
+
         setPrimaryAttack(
                 new Attack()
                         .name("Tail")
